@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Kim Calipes - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+
+        .wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .top-nav {
+            background: rgba(60, 60, 70, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-right {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .nav-item {
+            padding: 10px 20px;
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            background: transparent;
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .main-container {
+            background: rgba(50, 50, 60, 0.5);
+            backdrop-filter: blur(40px);
+            border-radius: 32px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+            background: rgba(60, 60, 70, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .footer-content {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-content p {
+            margin-bottom: 8px;
+        }
+
+        .footer-content strong {
+            color: white;
+        }
+
+        .footer-icons {
+            margin-top: 16px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .footer-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-icon.email {
+            color: #EA4335;
+        }
+
+        .footer-icon.github {
+            color: #fff;
+        }
+
+        .footer-icon.facebook {
+            color: #1877F2;
+        }
+
+        .card {
+            background: rgba(60, 60, 70, 0.6);
+            backdrop-filter: blur(30px);
+            border-radius: 28px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            background: rgba(70, 70, 80, 0.6);
+        }
+
+        .hero-card {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .avatar-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            overflow: hidden;
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-name {
+            color: white;
+            font-size: 2.8em;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.95); }
+        }
+
+        .power-card {
+            padding: 32px;
+            text-align: center;
+        }
+
+        .power-title {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .power-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95em;
+            margin-bottom: 24px;
+        }
+
+        .gauge-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        .gauge-bg {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #667eea 0deg, #f093fb 180deg, rgba(255, 255, 255, 0.1) 180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gauge-center {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: rgba(50, 50, 60, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .gauge-value {
+            font-size: 2.5em;
+            color: #FFA500;
+            font-weight: 700;
+        }
+
+        .gauge-label {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4px;
+        }
+
+        .card-header {
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .card-icon.star { color: #FFD700; }
+        .card-icon.code { color: #61DAFB; }
+        .card-icon.tools { color: #FF6B6B; }
+        .card-icon.rocket { color: #FF6347; }
+        .card-icon.envelope { color: #EA4335; }
+
+        .item-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .item-box i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .item-box .fa-users { color: #4A90E2; }
+        .item-box .fa-brain { color: #FF6B9D; }
+        .item-box .fa-clock { color: #50E3C2; }
+        .item-box .fa-python { color: #3776AB; }
+        .item-box .fa-bootstrap { color: #7952B3; }
+        .item-box .fa-html5 { color: #E34F26; }
+        .item-box .fa-code { color: #A8B9CC; }
+        .item-box .fa-desktop { color: #0078D7; }
+        .item-box .fa-js { color: #F7DF1E; }
+        .item-box .fa-robot { color: #00D9FF; }
+
+        .item-box:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(4px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-logo {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .project-name {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .visit-button, .screenshots-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .visit-button:hover, .screenshots-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .visit-button .fa-external-link-alt {
+            color: #4A90E2;
+        }
+
+        .screenshots-button .fa-images {
+            color: #9C27B0;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 12px;
+        }
+
+        .contact-box:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(4px);
+        }
+
+        .contact-icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .contact-icon-box.email { color: #EA4335; }
+        .contact-icon-box.github { color: #fff; }
+        .contact-icon-box.facebook { color: #1877F2; }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-label {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+
+        .contact-value {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+        }
+
+        .modal-content {
+            background: rgba(50, 50, 60, 0.95);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-title {
+            color: white;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        /* Custom scrollbar for modal */
+        .modal-body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Firefox scrollbar */
+        .modal-body {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+        }
+
+        .screenshot-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .screenshot-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .screenshot-title {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .screenshot-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .main-container {
+                padding: 20px;
+            }
+
+            .hero-name {
+                font-size: 2em;
+            }
+            
+            .power-title {
+                font-size: 1.4em;
+            }
+            
+            .top-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-left {
+                width: 100%;
+            }
+
+            .nav-right {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Navigation Bar -->
+        <div class="top-nav">
+
+             <div class="nav-right">
+                Personal Portfolio
+            </div>
+
+            <div class="nav-left">
+                <button class="nav-item active" onclick="scrollToSection('about')"><i class="fas fa-user"></i> About</button>
+                <button class="nav-item" onclick="scrollToSection('skills')"><i class="fas fa-briefcase"></i> Skills</button>
+                <button class="nav-item" onclick="scrollToSection('tools')"><i class="fas fa-tools"></i> Tools</button>
+                <button class="nav-item" onclick="scrollToSection('projects')"><i class="fas fa-rocket"></i> Projects</button>
+                <button class="nav-item" onclick="scrollToSection('contact')"><i class="fas fa-envelope"></i> Contact</button>
+            </div>
+           
+        </div>
+
+        <!-- Main Body Card -->
+        <div class="main-container">
+            <div class="row g-4">
+                <!-- About Section -->
+                <div class="col-12 col-lg-6" id="about">
+                    <div class="card hero-card">
+                        <div class="avatar-circle">
+                            <img src="IDpic.png" alt="Bryan Kim Calipes">
+                        </div>
+                        <h1 class="hero-name">Bryan Kim Calipes</h1>
+                        <p class="hero-title">Junior Web Developer</p>
+                        <div class="status-badge">
+                            <span class="status-indicator"></span>
+                            Currently a Student
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card power-card">
+                        <h2 class="power-title">Experience Level</h2>
+                        <p class="power-subtitle">Development Skills</p>
+                        <div class="gauge-container">
+                            <div class="gauge-bg">
+                                <div class="gauge-center">
+                                    <div class="gauge-value"><i class="fas fa-bolt"></i></div>
+                                    <div class="gauge-label">Growing</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="col-12 col-md-6 col-lg-4" id="skills">
+                    <div class="card">
+                        <h3 class="card-header">
+                            <span class="card-icon star"><i class="fas fa-star"></i></span>
+                            Skills
+                        </h3>
+                        <div class="item-box">
+                            <i class="fas fa-users"></i>
+                            <span>Easy to adopt in a work environment</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fas fa-brain"></i>
+                            <span>Fast learner</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fas fa-clock"></i>
+                            <span>Can manage time seamlessly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Section -->
+                <div class="col-12 col-md-6 col-lg-4" id="tools">
+                    <div class="card">
+                        <h3 class="card-header">
+                            <span class="card-icon code"><i class="fas fa-code"></i></span>
+                            Core Tools
+                        </h3>
+                        <div class="item-box">
+                            <i class="fab fa-python"></i>
+                            <span>Python-Django</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML & CSS</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fas fa-code"></i>
+                            <span>C Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <h3 class="card-header">
+                            <span class="card-icon tools"><i class="fas fa-layer-group"></i></span>
+                            Additional
+                        </h3>
+                        <div class="item-box">
+                            <i class="fas fa-desktop"></i>
+                            <span>Blend for Visual Studio 2015</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript & PHP</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fas fa-robot"></i>
+                            <span>AI API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="col-12 col-lg-6" id="projects">
+                    <div class="card">
+                        <h3 class="card-header">
+                            <span class="card-icon rocket"><i class="fas fa-rocket"></i></span>
+                            Featured Project
+                        </h3>
+                        <div class="project-box">
+                            <div class="project-logo">
+                                <img src="PCodeLogo.png" alt="Paulicode Logo">
+                            </div>
+                            <h4 class="project-name">Paulicode Developer</h4>
+                            <p class="project-description">A website for Programming and Cybersecurity education in an interactive way between Teacher and a student</p>
+                            <div class="button-group">
+                                <a href="http://paulicode.pythonanywhere.com" target="_blank" class="visit-button">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Visit Site
+                                </a>
+                                <button class="screenshots-button" data-bs-toggle="modal" data-bs-target="#screenshotsModal">
+                                    <i class="fas fa-images"></i>
+                                    Screenshots
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-12 col-lg-6" id="contact">
+                    <div class="card">
+                        <h3 class="card-header">
+                            <span class="card-icon envelope"><i class="fas fa-envelope"></i></span>
+                            Get in Touch
+                        </h3>
+                        <a href="mailto:bryankimcalipes@gmail.com" class="contact-box">
+                            <div class="contact-icon-box email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value">bryankimcalipes@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="https://facebook.com/calipesbryankim" target="_blank" class="contact-box">
+                            <div class="contact-icon-box facebook">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Facebook</div>
+                                <div class="contact-value">facebook.com/calipesbryankim</div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/calipes-dev" target="_blank" class="contact-box">
+                            <div class="contact-icon-box github">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">GitHub</div>
+                                <div class="contact-value">github.com/calipes-dev</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Card -->
+        <div class="footer-container">
+            <div class="footer-content">
+                <p><strong>Bryan Kim Calipes</strong> - Junior Web Developer Portfolio</p>
+                <p>© 2026 All rights reserved</p>
+            </div>
+            <div class="footer-icons">
+                <a href="mailto:bryankimcalipes@gmail.com" class="footer-icon email" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/calipes-dev" target="_blank" class="footer-icon github" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://facebook.com/calipesbryankim" target="_blank" class="footer-icon facebook" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screenshots Modal -->
+    <div class="modal fade" id="screenshotsModal" tabindex="-1" aria-labelledby="screenshotsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="screenshotsModalLabel">Paulicode Developer - Screenshots</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="dashboard.png" alt="Dashboard Screenshot">
+                                </div>
+                                <div class="screenshot-title">Dashboard</div>
+                                <div class="screenshot-desc">Shows progress card and task report summary</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="PRG.png" alt="Class Details Programming Screenshot">
+                                </div>
+                                <div class="screenshot-title">Class Details - Programming</div>
+                                <div class="screenshot-desc">Includes assignment/quizzes list, resources (PDF, etc.) for programming courses</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="cybersec.png" alt="Class Details Cybersecurity Screenshot">
+                                </div>
+                                <div class="screenshot-title">Class Details - Cybersecurity</div>
+                                <div class="screenshot-desc">Includes assignment/quizzes list, resources (PDF, etc.) for cybersecurity courses</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="Splay.png" alt="Student Playground Screenshot">
+                                </div>
+                                <div class="screenshot-title">Student Playground</div>
+                                <div class="screenshot-desc">Where students can code protected by anti-cheating (Autopass when any suspicious action is done)</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="leaderboard.png" alt="Leaderboard Screenshot">
+                                </div>
+                                <div class="screenshot-title">Leaderboard</div>
+                                <div class="screenshot-desc">Shows student scores in each class</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="StudyArea.png" alt="Study Area Screenshot">
+                                </div>
+                                <div class="screenshot-title">Study Area</div>
+                                <div class="screenshot-desc">Practice code, have AI assistant, and study resources</div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="screenshot-card">
+                                <div class="screenshot-img">
+                                    <img src="announcement.png" alt="Announcement Screenshot">
+                                </div>
+                                <div class="screenshot-title">Announcement</div>
+                                <div class="screenshot-desc">Teachers can post announcements for students</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Update active nav item
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                event.target.closest('.nav-item').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
