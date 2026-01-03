@@ -592,6 +592,14 @@
             font-size: 12px;
         }
 
+        @media (max-width: 991px) {
+            /* Make Additional card full width on medium screens and below */
+            #tools + div {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 15px 10px;
@@ -605,6 +613,10 @@
                 font-size: 2em;
             }
             
+            .hero-title {
+                font-size: 1.1em;
+            }
+            
             .power-title {
                 font-size: 1.4em;
             }
@@ -612,15 +624,281 @@
             .top-nav {
                 flex-direction: column;
                 gap: 15px;
+                padding: 15px;
             }
 
             .nav-left {
                 width: 100%;
+                justify-content: center;
             }
 
             .nav-right {
                 width: 100%;
                 text-align: center;
+            }
+
+            .nav-item {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .hero-card {
+                padding: 30px 20px;
+            }
+
+            .avatar-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .power-card {
+                padding: 24px;
+            }
+
+            .gauge-container,
+            .gauge-bg {
+                width: 150px;
+                height: 150px;
+            }
+
+            .gauge-center {
+                width: 110px;
+                height: 110px;
+            }
+
+            .card-header {
+                font-size: 1.1em;
+            }
+
+            .card-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+
+            .project-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .project-name {
+                font-size: 1.1em;
+            }
+
+            .contact-icon-box {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+            }
+
+            .footer-container {
+                padding: 20px;
+            }
+
+            .footer-content {
+                font-size: 13px;
+            }
+
+            .modal-dialog {
+                margin: 10px;
+            }
+
+            .modal-body {
+                padding: 15px;
+            }
+
+            .screenshot-img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding: 10px 8px;
+            }
+
+            .main-container {
+                padding: 15px;
+                border-radius: 24px;
+            }
+
+            .top-nav {
+                border-radius: 16px;
+                padding: 12px;
+            }
+
+            .nav-item {
+                padding: 8px 12px;
+                font-size: 12px;
+                gap: 6px;
+            }
+
+            .hero-name {
+                font-size: 1.6em;
+            }
+
+            .hero-title {
+                font-size: 1em;
+            }
+
+            .status-badge {
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+
+            .avatar-circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            .power-title {
+                font-size: 1.2em;
+            }
+
+            .power-subtitle {
+                font-size: 0.85em;
+            }
+
+            .gauge-container,
+            .gauge-bg {
+                width: 130px;
+                height: 130px;
+            }
+
+            .gauge-center {
+                width: 95px;
+                height: 95px;
+            }
+
+            .gauge-value {
+                font-size: 2em;
+            }
+
+            .card {
+                padding: 16px;
+                border-radius: 20px;
+            }
+
+            .card-header {
+                font-size: 1em;
+                margin-bottom: 16px;
+            }
+
+            .item-box {
+                padding: 14px 16px;
+                font-size: 13px;
+            }
+
+            .project-box {
+                padding: 20px;
+            }
+
+            .project-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .project-name {
+                font-size: 1em;
+            }
+
+            .project-description {
+                font-size: 13px;
+            }
+
+            .visit-button,
+            .screenshots-button {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .contact-box {
+                padding: 16px;
+            }
+
+            .contact-icon-box {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+
+            .contact-label {
+                font-size: 14px;
+            }
+
+            .contact-value {
+                font-size: 12px;
+            }
+
+            .footer-container {
+                padding: 16px;
+                border-radius: 16px;
+            }
+
+            .footer-content {
+                font-size: 12px;
+            }
+
+            .footer-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .modal-header {
+                padding: 12px 16px;
+            }
+
+            .modal-title {
+                font-size: 16px;
+            }
+
+            .modal-body {
+                padding: 12px;
+            }
+
+            .screenshot-card {
+                padding: 12px;
+            }
+
+            .screenshot-img {
+                height: 120px;
+            }
+
+            .screenshot-title {
+                font-size: 13px;
+            }
+
+            .screenshot-desc {
+                font-size: 11px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .wrapper {
+                max-width: 960px;
+            }
+
+            .hero-name {
+                font-size: 2.4em;
+            }
+
+            .power-title {
+                font-size: 1.6em;
+            }
+
+            .card-header {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .wrapper {
+                max-width: 1200px;
             }
         }
     </style>
