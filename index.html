@@ -6,920 +6,33 @@
     <title>Bryan Kim Calipes - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="mylogov2.png">
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            padding: 30px 20px;
-        }
-
-        .wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .top-nav {
-            background: rgba(60, 60, 70, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 12px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-left {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-right {
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .nav-item {
-            padding: 10px 20px;
-            border-radius: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            background: transparent;
-        }
-
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-        }
-
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .main-container {
-            background: rgba(50, 50, 60, 0.5);
-            backdrop-filter: blur(40px);
-            border-radius: 32px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            margin-bottom: 20px;
-        }
-
-        .footer-container {
-            background: rgba(60, 60, 70, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .footer-content {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .footer-content p {
-            margin-bottom: 8px;
-        }
-
-        .footer-content strong {
-            color: white;
-        }
-
-        .footer-icons {
-            margin-top: 16px;
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .footer-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-
-        .footer-icon:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .footer-icon.email {
-            color: #EA4335;
-        }
-
-        .footer-icon.github {
-            color: #fff;
-        }
-
-        .footer-icon.facebook {
-            color: #1877F2;
-        }
-
-        .card {
-            background: rgba(60, 60, 70, 0.6);
-            backdrop-filter: blur(30px);
-            border-radius: 28px;
-            padding: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-            background: rgba(70, 70, 80, 0.6);
-        }
-
-        .hero-card {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-        }
-
-        .avatar-circle {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
-            overflow: hidden;
-        }
-
-        .avatar-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-name {
-            color: white;
-            font-size: 2.8em;
-            margin-bottom: 8px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-title {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.4em;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-            margin-top: 8px;
-        }
-
-        .status-indicator {
-            width: 10px;
-            height: 10px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.95); }
-        }
-
-        .power-card {
-            padding: 32px;
-            text-align: center;
-        }
-
-        .power-title {
-            color: white;
-            font-size: 1.8em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .power-subtitle {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.95em;
-            margin-bottom: 24px;
-        }
-
-        .gauge-container {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto;
-        }
-
-        .gauge-bg {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, #667eea 0deg, #f093fb 180deg, rgba(255, 255, 255, 0.1) 180deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gauge-center {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: rgba(50, 50, 60, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .gauge-value {
-            font-size: 2.5em;
-            color: #FFA500;
-            font-weight: 700;
-        }
-
-        .gauge-label {
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 4px;
-        }
-
-        .card-header {
-            color: white;
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .card-icon.star { color: #FFD700; }
-        .card-icon.code { color: #61DAFB; }
-        .card-icon.tools { color: #FF6B6B; }
-        .card-icon.rocket { color: #FF6347; }
-        .card-icon.envelope { color: #EA4335; }
-
-        .item-box {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 16px 18px;
-            margin-bottom: 12px;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 14px;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .item-box i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .item-box .fa-users { color: #4A90E2; }
-        .item-box .fa-brain { color: #FF6B9D; }
-        .item-box .fa-clock { color: #50E3C2; }
-        .item-box .fa-python { color: #3776AB; }
-        .item-box .fa-bootstrap { color: #7952B3; }
-        .item-box .fa-html5 { color: #E34F26; }
-        .item-box .fa-code { color: #A8B9CC; }
-        .item-box .fa-desktop { color: #0078D7; }
-        .item-box .fa-js { color: #F7DF1E; }
-        .item-box .fa-robot { color: #00D9FF; }
-
-        .item-box:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateX(4px);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .project-box {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
-            padding: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .project-logo {
-            width: 80px;
-            height: 80px;
-            background: transparent;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .project-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .project-name {
-            color: white;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .project-description {
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .visit-button, .screenshots-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-        }
-
-        .visit-button:hover, .screenshots-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .visit-button .fa-external-link-alt {
-            color: #4A90E2;
-        }
-
-        .screenshots-button .fa-images {
-            color: #9C27B0;
-        }
-
-        .contact-box {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 12px;
-        }
-
-        .contact-box:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateX(4px);
-        }
-
-        .contact-icon-box {
-            width: 56px;
-            height: 56px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            flex-shrink: 0;
-        }
-
-        .contact-icon-box.email { color: #EA4335; }
-        .contact-icon-box.github { color: #fff; }
-        .contact-icon-box.facebook { color: #1877F2; }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-label {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 4px;
-            font-size: 15px;
-        }
-
-        .contact-value {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
-        }
-
-        .modal-content {
-            background: rgba(50, 50, 60, 0.95);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-        }
-
-        .modal-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-title {
-            color: white;
-        }
-
-        .btn-close {
-            filter: invert(1);
-        }
-
-        .modal-body {
-            padding: 20px;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        /* Custom scrollbar for modal */
-        .modal-body::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .modal-body::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-
-        .modal-body::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            transition: background 0.3s ease;
-        }
-
-        .modal-body::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Firefox scrollbar */
-        .modal-body {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
-        }
-
-        .screenshot-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .screenshot-img {
-            width: 100%;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .screenshot-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .screenshot-title {
-            color: white;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .screenshot-desc {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 12px;
-        }
-
-        @media (max-width: 991px) {
-            /* Make Additional card full width on medium screens and below */
-            #tools + div {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 15px 10px;
-            }
-
-            .main-container {
-                padding: 20px;
-            }
-
-            .hero-name {
-                font-size: 2em;
-            }
-            
-            .hero-title {
-                font-size: 1.1em;
-            }
-            
-            .power-title {
-                font-size: 1.4em;
-            }
-            
-            .top-nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            .nav-left {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .nav-right {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-item {
-                padding: 8px 16px;
-                font-size: 13px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .hero-card {
-                padding: 30px 20px;
-            }
-
-            .avatar-circle {
-                width: 120px;
-                height: 120px;
-            }
-
-            .power-card {
-                padding: 24px;
-            }
-
-            .gauge-container,
-            .gauge-bg {
-                width: 150px;
-                height: 150px;
-            }
-
-            .gauge-center {
-                width: 110px;
-                height: 110px;
-            }
-
-            .card-header {
-                font-size: 1.1em;
-            }
-
-            .card-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-            }
-
-            .project-logo {
-                width: 70px;
-                height: 70px;
-            }
-
-            .project-name {
-                font-size: 1.1em;
-            }
-
-            .contact-icon-box {
-                width: 48px;
-                height: 48px;
-                font-size: 22px;
-            }
-
-            .footer-container {
-                padding: 20px;
-            }
-
-            .footer-content {
-                font-size: 13px;
-            }
-
-            .modal-dialog {
-                margin: 10px;
-            }
-
-            .modal-body {
-                padding: 15px;
-            }
-
-            .screenshot-img {
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            body {
-                padding: 10px 8px;
-            }
-
-            .main-container {
-                padding: 15px;
-                border-radius: 24px;
-            }
-
-            .top-nav {
-                border-radius: 16px;
-                padding: 12px;
-            }
-
-            .nav-item {
-                padding: 8px 12px;
-                font-size: 12px;
-                gap: 6px;
-            }
-
-            .hero-name {
-                font-size: 1.6em;
-            }
-
-            .hero-title {
-                font-size: 1em;
-            }
-
-            .status-badge {
-                font-size: 12px;
-                padding: 10px 16px;
-            }
-
-            .avatar-circle {
-                width: 100px;
-                height: 100px;
-            }
-
-            .power-title {
-                font-size: 1.2em;
-            }
-
-            .power-subtitle {
-                font-size: 0.85em;
-            }
-
-            .gauge-container,
-            .gauge-bg {
-                width: 130px;
-                height: 130px;
-            }
-
-            .gauge-center {
-                width: 95px;
-                height: 95px;
-            }
-
-            .gauge-value {
-                font-size: 2em;
-            }
-
-            .card {
-                padding: 16px;
-                border-radius: 20px;
-            }
-
-            .card-header {
-                font-size: 1em;
-                margin-bottom: 16px;
-            }
-
-            .item-box {
-                padding: 14px 16px;
-                font-size: 13px;
-            }
-
-            .project-box {
-                padding: 20px;
-            }
-
-            .project-logo {
-                width: 60px;
-                height: 60px;
-            }
-
-            .project-name {
-                font-size: 1em;
-            }
-
-            .project-description {
-                font-size: 13px;
-            }
-
-            .visit-button,
-            .screenshots-button {
-                padding: 10px 20px;
-                font-size: 13px;
-            }
-
-            .contact-box {
-                padding: 16px;
-            }
-
-            .contact-icon-box {
-                width: 44px;
-                height: 44px;
-                font-size: 20px;
-            }
-
-            .contact-label {
-                font-size: 14px;
-            }
-
-            .contact-value {
-                font-size: 12px;
-            }
-
-            .footer-container {
-                padding: 16px;
-                border-radius: 16px;
-            }
-
-            .footer-content {
-                font-size: 12px;
-            }
-
-            .footer-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 16px;
-            }
-
-            .modal-header {
-                padding: 12px 16px;
-            }
-
-            .modal-title {
-                font-size: 16px;
-            }
-
-            .modal-body {
-                padding: 12px;
-            }
-
-            .screenshot-card {
-                padding: 12px;
-            }
-
-            .screenshot-img {
-                height: 120px;
-            }
-
-            .screenshot-title {
-                font-size: 13px;
-            }
-
-            .screenshot-desc {
-                font-size: 11px;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .wrapper {
-                max-width: 960px;
-            }
-
-            .hero-name {
-                font-size: 2.4em;
-            }
-
-            .power-title {
-                font-size: 1.6em;
-            }
-
-            .card-header {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (min-width: 1025px) and (max-width: 1440px) {
-            .wrapper {
-                max-width: 1200px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="wrapper">
         <!-- Navigation Bar -->
         <div class="top-nav">
-
-             <div class="nav-right">
-                Personal Portfolio
+            <div class="nav-logo">
+                <img src="mylogo.png" alt="Logo">
             </div>
 
-            <div class="nav-left">
+
+            <button class="burger-menu" id="burgerMenu" onclick="toggleMenu()">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+
+            <div class="nav-left" id="navLeft">
                 <button class="nav-item active" onclick="scrollToSection('about')"><i class="fas fa-user"></i> About</button>
                 <button class="nav-item" onclick="scrollToSection('skills')"><i class="fas fa-briefcase"></i> Skills</button>
                 <button class="nav-item" onclick="scrollToSection('tools')"><i class="fas fa-tools"></i> Tools</button>
                 <button class="nav-item" onclick="scrollToSection('projects')"><i class="fas fa-rocket"></i> Projects</button>
+                <button class="nav-item" onclick="scrollToSection('blog')"><i class="fas fa-book"></i> Blog</button>
                 <button class="nav-item" onclick="scrollToSection('contact')"><i class="fas fa-envelope"></i> Contact</button>
             </div>
-           
         </div>
 
         <!-- Main Body Card -->
@@ -964,7 +77,7 @@
                         </h3>
                         <div class="item-box">
                             <i class="fas fa-users"></i>
-                            <span>Easily adapts to a professional work environment</span>
+                            <span>Easily adapts to a work environment</span>
                         </div>
                         <div class="item-box">
                             <i class="fas fa-brain"></i>
@@ -978,6 +91,11 @@
                             <i class="fa-solid fa-atom"></i>
                             <span>Intermediate knowledge of web development</span>
                         </div>
+                        <div class="item-box">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span>Efficient multitasking skills</span>
+                        </div>
+
                     </div>
                 </div>
 
@@ -1004,6 +122,10 @@
                             <i class="fas fa-code"></i>
                             <span>C Programming</span>
                         </div>
+                        <div class="item-box">
+                            <i class="fa-solid fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1019,18 +141,47 @@
                         </div>
                         <div class="item-box">
                             <i class="fab fa-js"></i>
-                            <span>JavaScript & PHP</span>
+                            <span>JavaScript</span>
                         </div>
-                        <div class="item-box">
-                            <i class="fas fa-robot"></i>
-                            <span>AI API Integration</span>
-                        </div>
-
+                        
                         <div class="item-box">
                             <i class="fa-brands fa-github"></i>
                             <span>Github</span>
                         </div>
+                        <div class="item-box">
+                            <i class="fa-brands fa-php"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="item-box">
+                            <i class="fa-solid fa-robot"></i>
+                            <span>AI API Integration</span>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Blog Section -->
+                <div class="col-12" id="blog">
+                    <div class="card">
+                        <h3 class="card-header">
+                            <span class="card-icon" style="color: #FF6347;"><i class="fas fa-book"></i></span>
+                            My Journey
+                        </h3>
+                        <div class="blog-content collapsed" id="blogContent">
+                            <h4>From Curiosity to Code: My Journey So Far</h4>
+                            <p>My name is Bryan Kim Calipes, I'm 22 years old, and my story with technology didn't start with lines of code—it started with curiosity.</p>
+                            <p>I remember staring at apps and websites, wondering what really lived behind those smooth animations and pretty user interfaces. Everyone sees the buttons, the colors, the effects—but I wanted to know what makes them work. That simple question slowly pulled me into the world of Information Technology.</p>
+                            <p>I enrolled in BSIT not because I already knew everything, but because I didn't. I was curious. Curious about how websites talk to databases, how a login form decides whether to let you in or keep you out, and how games react instantly to every click and move. Speaking of games—when I'm not coding, you'll probably find me playing Mobile Legends, Albion Online, or DOTA 2. Games taught me something important early on: systems matter. Balance matters. And behind every "fun experience" is solid logic.</p>
+                            <p>My first real steps into development were raw and hands-on. I built websites using direct PHP with HTML and MySQL, breaking things more often than fixing them—but learning every time. Later, I moved into Python with Django, where structure started to make sense and projects began to feel more real. I even explored desktop development using Blend for Visual Studio 2015, just to understand how software behaves beyond the browser.</p>
+                            <p>Eventually, all those experiments led to something I'm proud of: Paulicode. It's more than just a project—it's proof of growth. I developed it as a platform where programming and cybersecurity learning can happen interactively between teachers and students. Every feature, from dashboards to anti-cheating mechanisms, reflects my mindset: build something useful, and build it responsibly.</p>
+                            <p>Right now, I'm still a student—but I don't see that as a limitation. I see it as momentum. I'm actively learning modern frameworks like React and Next.js, pushing myself closer to industry standards. At the same time, I'm deeply focused on security, aiming to apply maximum protection in every system I build. For me, a beautiful website means nothing if it isn't safe.</p>
+                            <p>What keeps me going isn't just the goal of becoming an expert web developer—it's the joy of figuring things out. I enjoy asking "why," digging through documentation, reading other people's code, and sometimes discovering answers hidden deep inside my own projects. Some details about me aren't written in words at all—they're written inside my code.</p>
+                            <p>This journey is far from over. I'm still learning, still experimenting, still breaking things and rebuilding them better. But one thing is certain: curiosity brought me here, and curiosity will take me further.</p>
+                            <p style="margin-bottom: 0;"><strong>And this? This is just the beginning.</strong></p>
+                        </div>
+                        <button class="read-more-btn" id="readMoreBtn" onclick="toggleBlog()">
+                            <span id="readMoreText">Read More</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -1068,33 +219,41 @@
                             <span class="card-icon envelope"><i class="fas fa-envelope"></i></span>
                             Get in Touch
                         </h3>
-                        <a href="mailto:bryankimcalipes@gmail.com" class="contact-box">
-                            <div class="contact-icon-box email">
-                                <i class="fas fa-envelope"></i>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <a href="mailto:bryankimcalipes@gmail.com" class="contact-box">
+                                    <div class="contact-icon-box email">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-info">
+                                        <div class="contact-label">Email</div>
+                                        <div class="contact-value">bryankimcalipes@gmail.com</div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="contact-info">
-                                <div class="contact-label">Email</div>
-                                <div class="contact-value">bryankimcalipes@gmail.com</div>
+                            <div class="col-12">
+                                <a href="https://facebook.com/calipesbryankim" target="_blank" class="contact-box">
+                                    <div class="contact-icon-box facebook">
+                                        <i class="fab fa-facebook"></i>
+                                    </div>
+                                    <div class="contact-info">
+                                        <div class="contact-label">Facebook</div>
+                                        <div class="contact-value">facebook.com/calipesbryankim</div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                        <a href="https://facebook.com/calipesbryankim" target="_blank" class="contact-box">
-                            <div class="contact-icon-box facebook">
-                                <i class="fab fa-facebook"></i>
+                            <div class="col-12">
+                                <a href="https://github.com/calipes-dev" target="_blank" class="contact-box">
+                                    <div class="contact-icon-box github">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <div class="contact-info">
+                                        <div class="contact-label">GitHub</div>
+                                        <div class="contact-value">github.com/calipes-dev</div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="contact-info">
-                                <div class="contact-label">Facebook</div>
-                                <div class="contact-value">facebook.com/calipesbryankim</div>
-                            </div>
-                        </a>
-                        <a href="https://github.com/calipes-dev" target="_blank" class="contact-box">
-                            <div class="contact-icon-box github">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-info">
-                                <div class="contact-label">GitHub</div>
-                                <div class="contact-value">github.com/calipes-dev</div>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1120,12 +279,17 @@
         </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Screenshots Modal -->
     <div class="modal fade" id="screenshotsModal" tabindex="-1" aria-labelledby="screenshotsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="screenshotsModalLabel">Paulicode Developer - Screenshots</h5>
+                    <h5 class="modal-title" id="screenshotsModalLabel">Paulicode's UI - Screenshots</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -1200,19 +364,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                // Update active nav item
-                document.querySelectorAll('.nav-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                event.target.closest('.nav-item').classList.add('active');
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
