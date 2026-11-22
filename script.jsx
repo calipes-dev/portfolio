@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   ArrowUp, Code2, Command, FileText, Folder, GitBranch, Mail, Menu, MessageCircle,
-  Moon, Pause, Play, Plus, Sparkles, Sun, UserRound, X,
+  Moon, ChevronDown, Plus, Sparkles, Sun, UserRound, X,
 } from 'lucide-react'
 import './chat.css'
 
@@ -45,12 +45,9 @@ const skills = [
 ]
 
 function SkillCarousel() {
-  const [paused, setPaused] = useState(false)
-  const action = paused ? 'Play skill carousel' : 'Pause skill carousel'
-  const Icon = paused ? Play : Pause
   return <div className="skill-carousel">
     <div className="skill-window">
-      <div className="skill-track" style={{ animationPlayState: paused ? 'paused' : 'running' }}>
+      <div className="skill-track">
         {[0, 1].map(copy => <ul key={copy} aria-label="Technical skills" aria-hidden={copy === 1}>
           {skills.map(([name, icon]) => <li key={name}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d={icon.path} /></svg>
@@ -59,9 +56,6 @@ function SkillCarousel() {
         </ul>)}
       </div>
     </div>
-    <button type="button" className="chip motion-control" aria-label={action} title={action} onClick={() => setPaused(value => !value)}>
-      <Icon size={18} aria-hidden="true" />
-    </button>
   </div>
 }
 const themeKey = 'bryan-portfolio-theme'
@@ -88,17 +82,18 @@ function Reply({ topic }) {
     case 'greeting': return <p>Hello! Welcome to my portfolio. What would you like to know about me?</p>
     case 'about':
       return <section className="biography"><h4>From Curiosity to Code: My Journey So Far</h4>
-                            <p>My name is Bryan Kim Calipes, I'm 22 years old, and my story with technology didn't start with lines of code—it started with curiosity.</p>
+                            <p>My name is Bryan Kim Calipes, I'm 23 years old, and my story with technology didn't start with lines of code—it started with curiosity.</p>
                             {expanded && <div className="biography-more"><p>I remember staring at apps and websites, wondering what really lived behind those smooth animations and pretty user interfaces. Everyone sees the buttons, the colors, the effects—but I wanted to know what makes them work. That simple question slowly pulled me into the world of Information Technology.</p>
                             <p>I enrolled in BSIT not because I already knew everything, but because I didn't. I was curious. Curious about how websites talk to databases, how a login form decides whether to let you in or keep you out, and how games react instantly to every click and move. Speaking of games—when I'm not coding, you'll probably find me playing Mobile Legends, Albion Online, or DOTA 2. Games taught me something important early on: systems matter. Balance matters. And behind every "fun experience" is solid logic.</p>
                             <p>My first real steps into development were raw and hands-on. I built websites using direct PHP with HTML and MySQL, breaking things more often than fixing them—but learning every time. Later, I moved into Python with Django, where structure started to make sense and projects began to feel more real. I even explored desktop development using Blend for Visual Studio 2015, just to understand how software behaves beyond the browser.</p>
-                            <p>Eventually, all those experiments led to something I'm proud of: Paulicode. It's more than just a project—it's proof of growth. I developed it as a platform where programming and cybersecurity learning can happen interactively between teachers and students. Every feature, from dashboards to anti-cheating mechanisms, reflects my mindset: build something useful, and build it responsibly.</p>
+                            <p>Eventually, all those experiments led to something I'm proud of: Codoria. It's more than just a project—it's proof of growth. I developed it as a platform where programming and cybersecurity learning can happen interactively between teachers and students. Every feature, from dashboards to anti-cheating mechanisms, reflects my mindset: build something useful, and build it responsibly.</p>
+                            <p>With Codoria, I explored how students learn programming. Tutoring my niece brought that question home. How could I make a Grade 6 math lesson easier for her to follow? I built Aralaro so we could work through diagrams together, highlight each step, and practise with games.</p>
                             <p>Right now, I'm still a student—but I don't see that as a limitation. I see it as momentum. I'm actively learning modern frameworks like React and Next.js, pushing myself closer to industry standards. At the same time, I'm deeply focused on security, aiming to apply maximum protection in every system I build. For me, a beautiful website means nothing if it isn't safe.</p>
                             <p>What keeps me going isn't just the goal of becoming an expert web developer—it's the joy of figuring things out. I enjoy asking "why," digging through documentation, reading other people's code, and sometimes discovering answers hidden deep inside my own projects. Some details about me aren't written in words at all—they're written inside my code.</p>
-                            <p>Tutoring my niece in Grade 6 math inspired Aralaro. Designing its diagrams and games gave me another way to explore how students learn.</p><p>This journey is far from over. I'm still learning, still experimenting, still breaking things and rebuilding them better. But one thing is certain: curiosity brought me here, and curiosity will take me further.</p>
+                            <p>This journey is far from over. I'm still learning, still experimenting, still breaking things and rebuilding them better. But one thing is certain: curiosity brought me here, and curiosity will take me further.</p>
                             <p><strong>And this? This is just the beginning.</strong></p></div>}
         <button className="bio-toggle" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>
-          {expanded ? 'Show less' : 'Continue reading'} <span aria-hidden="true">{expanded ? '⌄' : '⌃'}</span>
+          {expanded ? 'Show less' : 'Continue reading'} <ChevronDown size={16} aria-hidden="true" />
         </button></section>
     case 'resume':
       return <>
@@ -117,7 +112,7 @@ function Reply({ topic }) {
     case 'certificates':
       return <><p>Here are my certificates. Select a preview to see the full image.</p>
         <div className="reply-grid">{[['CSC', csc], ['Cybersecurity', cyber]].map(([name, image]) =>
-          <details key={name} className="reply-card certificate"><summary><img src={image} alt="" /><strong>{name} Certificate</strong></summary><p className="my-2">{name === 'CSC' ? 'I took the CSC exam without studying beforehand and passed.' : 'On March 28, 2026, my team placed second in the Philippine Army’s TRON Cyber Defense Competition. We went toe-to-toe with the winning team and finished just behind them on points.'}</p>
+          <details key={name} className="reply-card certificate"><summary><img src={image} alt="" /><strong>{name} Certificate</strong></summary><p className="my-2">{name === 'CSC' ? 'I passed the CSE Professional pen-and-paper exam on August 9, 2026.' : 'On March 28, 2026, my team placed second in the Philippine Army’s TRON Cyber Defense Competition.'}</p>
             <a href={image} download={name + (name === 'CSC' ? '.png' : '.jpg')}>Download full image</a>
           </details>)}</div></>
     case 'skills':
