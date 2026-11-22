@@ -1,0 +1,18 @@
+BRYAN KIM CALIPES
+Student, researcher, and developer
+bryankimcalipes@gmail.com | github.com/calipes-dev
+
+EDUCATION
+BS Information Technology (in progress)
+
+PROJECTS
+Codoria — Capstone project. https://codoria.vercel.app/
+Aralaro — Interactive Grade 6 math lessons using color highlights, diagrams, and games. https://aralaro.vercel.app/
+Paulicode — Interactive platform for programming and cybersecurity education.
+
+SKILLS
+React, TypeScript, Next.js, Django, PHP, PostgreSQL, MySQL, Arduino/ESP32, Bootstrap, Tailwind CSS
+
+CERTIFICATES AND ACHIEVEMENTS
+Passed the CSC exam.
+Second place, team event — Philippine Army TRON Cyber Defense Competition, March 28, 2026.
