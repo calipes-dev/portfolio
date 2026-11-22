@@ -202,3 +202,9 @@ html, body, #root { height: 100%; overflow: hidden; }
 }
 
 .bio-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.sidebar-footer { min-height: 44px; padding: 12px 5px 0; font-variant-numeric: tabular-nums; }
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 55%, var(--bg)) var(--bg);
+}

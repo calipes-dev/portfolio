@@ -234,7 +234,7 @@ function App() {
           <Icon size={17} /> {name}
         </button>)}
       </nav>
-      <div className="sidebar-footer mt-auto flex items-center gap-2.5"><span>@{new Date().getFullYear()}</span></div>
+      <div className="sidebar-footer mt-auto flex items-center gap-2.5"><span>© {new Date().getFullYear()} Bryan Calipes</span></div>
     </>
   }
 
@@ -306,3 +306,9 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App />)
+
+if (import.meta.env.PROD && ['http:', 'https:'].includes(location.protocol) && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(error => console.warn('Offline setup failed', error))
+  })
+}
