@@ -1,0 +1,9 @@
+name = "bryan-portfolio-chat"
+main = "index.mjs"
+compatibility_date = "2026-01-01"
+
+[vars]
+PORTFOLIO_ORIGIN = "https://calipes-dev.github.io"
+
+[observability]
+enabled = false

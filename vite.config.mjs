@@ -3,6 +3,10 @@ import tailwindcss from '@tailwindcss/vite'
 import { viteSingleFile } from 'vite-plugin-singlefile'
 
 export default defineConfig({
+<<<<<<< Updated upstream
+=======
+  base: './',
+>>>>>>> Stashed changes
   plugins: [tailwindcss(), viteSingleFile()],
   build: { assetsInlineLimit: Number.MAX_SAFE_INTEGER },
 })
