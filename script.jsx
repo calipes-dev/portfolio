@@ -1,5 +1,6 @@
 import { siReact, siTypescript, siNextdotjs, siDjango, siPostgresql, siMysql, siArduino, siEspressif, siBootstrap, siTailwindcss, siPhp } from 'simple-icons'
 const resumeFile = './Calipes_CV.pdf'
+const resumePages = ['./Calipes_CV-1.jpg', './Calipes_CV-2.jpg']
 import csc from './CSC_Certificate.PNG?inline'
 import cyber from './Cybersecurity_Certificates.jfif?url&inline'
 import React, { useEffect, useRef, useState } from 'react'
@@ -89,6 +90,26 @@ function matchTopic(question) {
   return topics.find(({ pattern }) => pattern.test(subject))?.id ?? 'fallback'
 }
 
+function ResumePreview() {
+  const dialog = useRef(null)
+
+  return <>
+    <button type="button" className="resume-preview" aria-haspopup="dialog" onClick={() => dialog.current.showModal()}>
+      <img src={resumePages[0]} alt="" width="1150" height="1489" />
+      <span>Enlarge résumé preview</span>
+    </button>
+    <dialog ref={dialog} className="resume-viewer" aria-label="Résumé preview">
+      <div className="resume-viewer-bar">
+        <a className="text-link" href={resumeFile} target="_blank" rel="noopener">Open original PDF</a>
+        <button type="button" className="icon-button" aria-label="Close résumé preview" autoFocus onClick={() => dialog.current.close()}>
+          <X size={20} aria-hidden="true" />
+        </button>
+      </div>
+      {resumePages.map((page, index) => <img key={page} src={page} alt={`Résumé page ${index + 1}`} width="1150" height="1489" loading="lazy" />)}
+    </dialog>
+  </>
+}
+
 function Reply({ topic, answer }) {
   const [expanded, setExpanded] = useState(false)
   switch (topic) {
@@ -120,7 +141,9 @@ function Reply({ topic, answer }) {
           <dl className="resume-details">
             <dt>Education</dt><dd>BS Information Technology</dd>
             <dt>Selected projects</dt><dd>Codoria and Aralaro</dd>
-          </dl><a className="text-link inline-flex min-h-11 items-center" href={resumeFile} download="Calipes_CV.pdf">Download résumé (PDF)</a>
+          </dl>
+          <ResumePreview />
+          <a className="text-link inline-flex min-h-11 items-center" href={resumeFile} download="Calipes_CV.pdf">Download résumé (PDF)</a>
         </div>
       </>
     case 'certificates':

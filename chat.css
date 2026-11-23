@@ -145,6 +145,44 @@ svg { flex: none; }
 .resume-details { display: grid; gap: 3px; margin-top: 13px; }
 .resume-details dt { font-weight: 650; font-size: .875rem; }
 .resume-details dd + dt { margin-top: 7px; }
+.resume-preview {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  width: min(100%, 248px);
+  margin-top: 14px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--accent);
+  font-size: .875rem;
+}
+.resume-preview:hover { background: var(--hover); }
+.resume-preview img, .resume-viewer img { display: block; width: 100%; height: auto; background: white; }
+.resume-viewer {
+  inset: 0;
+  margin: auto;
+  width: min(780px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 0 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+  overflow: auto;
+}
+.resume-viewer::backdrop { background: rgb(0 0 0 / .65); }
+.resume-viewer-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 4px;
+  background: var(--card);
+}
+.resume-viewer img + img { margin-top: 12px; }
 .text-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .tag { background: var(--wash); color: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: .875rem; }
 .contact-list { display: grid; gap: 7px; }
