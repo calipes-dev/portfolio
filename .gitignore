@@ -1,9 +1,7 @@
 node_modules/
 dist/
 .npm-cache/
-<<<<<<< Updated upstream
-=======
 
 .dev.vars
+.dev.vars.*
 .wrangler/
->>>>>>> Stashed changes

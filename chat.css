@@ -188,18 +188,18 @@ html, body, #root { height: 100%; overflow: hidden; }
 @media (max-width: 30rem) { .thread { padding-block: 16px; } .answer-row { gap: 7px; } .composer-note { display: none; } }
 .app-shell { position: fixed; inset: 0; }
 
-<<<<<<< Updated upstream
 .bio-toggle { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }
 .skill-window { overflow: hidden; padding-block: 4px 10px; }
 .skill-track { display: flex; width: max-content; animation: skills-right 38s linear infinite; }
 .skill-track ul { flex: none; width: max-content; display: flex; gap: 10px; padding-right: 10px; }
 @keyframes skills-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 .skill-carousel li { width: 108px; flex: none; display: grid; justify-items: center; gap: 8px; padding: 15px 5px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); scroll-snap-align: start; font-size: .875rem; }
+.motion-control { display: inline-grid; place-items: center; width: 44px; padding: 0; }
 .skill-track svg { width: 30px; height: 30px; fill: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   .skill-track { width: 100%; }
   .skill-track ul { width: 100%; flex-wrap: wrap; padding: 0; }
-  .skill-track ul[aria-hidden="true"] { display: none; }
+  .skill-track ul[aria-hidden="true"], .motion-control { display: none; }
 }
 
 .bio-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
@@ -208,18 +208,4 @@ html, body, #root { height: 100%; overflow: hidden; }
 .scroll-area {
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--accent) 55%, var(--bg)) var(--bg);
-=======
-.bio-toggle { color: var(--accent); min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }
-.skill-window { overflow: hidden; padding-block: 4px 10px; }
-.skill-track { display: flex; width: max-content; animation: skills-right 38s linear infinite; }
-.skill-track ul { display: flex; gap: 10px; padding-right: 10px; }
-@keyframes skills-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-.skill-carousel li { flex: 0 0 108px; display: grid; justify-items: center; gap: 8px; padding: 15px 5px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); scroll-snap-align: start; font-size: .875rem; }
-.motion-control { display: inline-grid; place-items: center; width: 44px; padding: 0; }
-.skill-track svg { width: 30px; height: 30px; fill: var(--accent); }
-@media (prefers-reduced-motion: reduce) {
-  .skill-track { width: 100%; }
-  .skill-track ul { flex-wrap: wrap; padding: 0; }
-  .skill-track ul[aria-hidden="true"], .motion-control { display: none; }
->>>>>>> Stashed changes
 }
