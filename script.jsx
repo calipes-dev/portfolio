@@ -12,7 +12,7 @@ import {
 import './chat.css'
 
 const topics = [
-  { id: 'resume', name: 'Resume', detail: 'Education & experience', Icon: FileText, pattern: /^(?:resum[eé]|cv|education|experience|qualifications?|degree|university)$/i },
+  { id: 'resume', name: 'Curriculum Vitae', detail: 'Education & experience', Icon: FileText, pattern: /^(?:curriculum vitae|resum[eé]|cv|education|experience|qualifications?|degree|university)$/i },
   { id: 'about', name: 'About me', detail: 'Get to know Bryan', Icon: UserRound, pattern: /^(?:about (?:me|bryan)|who is bryan|background|biography|bio)$/i },
   { id: 'skills', name: 'Skills', detail: 'Tools & technologies', Icon: Code2, pattern: /^(?:skills?|stack|tools?|technolog\w*|react|typescript|next\b|django|postgres(?:ql)?|arduino|esp32|mysql|bootstrap|tailwind|php|frameworks?|languages?)$/i },
   { id: 'projects', name: 'Projects', detail: 'Explore what I’ve built', Icon: Folder, pattern: /^(?:projects?|portfolio|work|built|build|apps?|codoria|aralaro)$/i },
@@ -96,16 +96,16 @@ function ResumePreview() {
   return <>
     <button type="button" className="resume-preview" aria-haspopup="dialog" onClick={() => dialog.current.showModal()}>
       <img src={resumePages[0]} alt="" width="1150" height="1489" />
-      <span>Enlarge résumé preview</span>
+      <span>Enlarge CV preview</span>
     </button>
-    <dialog ref={dialog} className="resume-viewer" aria-label="Résumé preview">
+    <dialog ref={dialog} className="resume-viewer" aria-label="Curriculum Vitae preview">
       <div className="resume-viewer-bar">
         <a className="text-link" href={resumeFile} target="_blank" rel="noopener">Open original PDF</a>
-        <button type="button" className="icon-button" aria-label="Close résumé preview" autoFocus onClick={() => dialog.current.close()}>
+        <button type="button" className="icon-button" aria-label="Close CV preview" autoFocus onClick={() => dialog.current.close()}>
           <X size={20} aria-hidden="true" />
         </button>
       </div>
-      {resumePages.map((page, index) => <img key={page} src={page} alt={`Résumé page ${index + 1}`} width="1150" height="1489" loading="lazy" />)}
+      {resumePages.map((page, index) => <img key={page} src={page} alt={`Curriculum Vitae page ${index + 1}`} width="1150" height="1489" loading="lazy" />)}
     </dialog>
   </>
 }
@@ -132,18 +132,13 @@ function Reply({ topic, answer }) {
         </button></section>
     case 'resume':
       return <>
-        <p>Here’s a quick overview of my education and development work.</p>
         <div className="reply-card">
           <div className="flex items-center gap-3">
             <span className="tile"><FileText size={18} /></span>
             <div><h3>Bryan Kim Calipes</h3><p className="muted">Student, researcher, and developer</p></div>
           </div>
-          <dl className="resume-details">
-            <dt>Education</dt><dd>BS Information Technology</dd>
-            <dt>Selected projects</dt><dd>Codoria and Aralaro</dd>
-          </dl>
           <ResumePreview />
-          <a className="text-link inline-flex min-h-11 items-center" href={resumeFile} download="Calipes_CV.pdf">Download résumé (PDF)</a>
+          <a className="text-link inline-flex min-h-11 items-center" href={resumeFile} download="Calipes_CV.pdf">Download Curriculum Vitae (PDF)</a>
         </div>
       </>
     case 'certificates':
@@ -292,7 +287,7 @@ function App() {
           <Icon size={17} /> {name}
         </button>)}
       </nav>
-      <div className="sidebar-footer mt-auto flex items-center gap-2.5"><span>© {new Date().getFullYear()} Bryan Calipes</span></div>
+      <div className="sidebar-footer mt-auto flex items-center gap-2.5"><span>@2026 Bryan Kim Calipes</span></div>
     </>
   }
 
@@ -334,7 +329,11 @@ function App() {
           {messages.map(({ id, question, topic, answer }) => <article key={id} className="turn">
             <div className="question-row"><p><span className="sr-only">You: </span>{question}</p></div>
             <div className="answer-row">
-              <span className="tile assistant-mark"><Sparkles size={18} /></span>
+              <svg className="assistant-mark shrink-0" width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M11 4v4m10-4v4M11 24v4m10-4v4M4 11h4m-4 10h4m16-10h4m-4 10h4" stroke="var(--accent)" strokeWidth="2.5" />
+                <rect x="7" y="7" width="18" height="18" rx="3" fill="var(--accent)" />
+                <path d="M12 11h5c4 0 4 5 0 5h-5m5 0c4.5 0 4.5 5 0 5h-5V11" fill="none" stroke="var(--bg)" strokeWidth="2.4" strokeLinejoin="round" />
+              </svg>
               <div className="answer min-w-0">
                 <h2>Bryan</h2>
                 {topic ? <>

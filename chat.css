@@ -73,6 +73,13 @@ svg { flex: none; }
   border-right: 1px solid var(--line);
 }
 .mobile-drawer::backdrop { background: #19150e80; }
+.mobile-drawer[open] { animation: drawer-slide-in 220ms ease-out; }
+.mobile-drawer[open]::backdrop { animation: drawer-fade-in 220ms ease-out; }
+@keyframes drawer-slide-in { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes drawer-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .mobile-drawer[open], .mobile-drawer[open]::backdrop { animation: none; }
+}
 .drawer-content { position: relative; overflow-y: auto; }
 .drawer-close { position: absolute; top: 23px; right: 8px; }
 
